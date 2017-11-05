@@ -1,0 +1,16 @@
+{
+    "name": "kis/yaf-template",
+    "description": "yaf composer template",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kis",
+            "email": "yangqinchuan_kis@163.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
