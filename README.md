@@ -1,6 +1,14 @@
 # Yaf-common-template
 Yaf + composer 公共模板， 方便快速创建项目
 
+### Install
+
+```
+composer install
+
+cp conf/application.ini.example conf/application.ini
+```
+
 ### Eloquent ORM
 1. 在Models中使用
 ```
