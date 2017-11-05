@@ -12,7 +12,7 @@ class IndexController extends Yaf\Controller_Abstract {
      * Yaf支持直接把Yaf\Request_Abstract::getParam()得到的同名参数作为Action的形参
      * 对于如下的例子, 当访问http://yourhost/Observer/index/index/index/name/yangqinchuan 的时候, 你就会发现不同
      */
-	public function indexAction($name = "Stranger") {
+	public function indexAction($name = "Kis") {
 
 		//1. fetch query
 		$get = $this->getRequest()->getQuery("get", "default value");
@@ -21,7 +21,7 @@ class IndexController extends Yaf\Controller_Abstract {
 		$model = new SampleModel();
 
 		//3. assign
-		$this->getView()->assign("content", $05model->selectSample());
+		$this->getView()->assign("content", $model->selectSample());
 		$this->getView()->assign("name", $name);
 
 		//4. render by Yaf, 如果这里返回FALSE, Yaf将不会调用自动视图引擎Render模板
