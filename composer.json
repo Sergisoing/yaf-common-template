@@ -11,7 +11,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "guzzlehttp/guzzle": "^6.3",
         "illuminate/database": "^5.5"
     },
     "require-dev": {
