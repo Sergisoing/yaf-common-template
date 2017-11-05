@@ -1,4 +1,6 @@
 <?php
+
+use Illuminate\Database\Capsule\Manager as Capsule;
 /**
  * @name Bootstrap
  * @author yangqinchuan
@@ -14,6 +16,23 @@ class Bootstrap extends Yaf\Bootstrap_Abstract {
 		$arrConfig = Yaf\Application::app()->getConfig();
 		Yaf\Registry::set('config', $arrConfig);
 	}
+
+    public function _initDatabaseORM(Yaf\Dispatcher $dispatcher) {
+        $capsule = new Capsule;
+        $appConfig = Yaf\Application::app()->getConfig();
+        foreach ($appConfig->database as $connectionName => $dbConfig) {
+            $capsule->addConnection([
+            'driver'    => $dbConfig['driver'] ?? 'mysql',
+            'host'      => $dbConfig['host'],
+            'database'  => $dbConfig['database'],
+            'username'  => $dbConfig['username'],
+            'password'  => $dbConfig['password'],
+            'charset'   => $dbConfig['charset'] ?? 'utf8',
+            'prefix'    => $dbConfig['prefix']
+            ], $connectionName);
+        }
+        $capsule->bootEloquent();
+    }
 
 	public function _initPlugin(Yaf\Dispatcher $dispatcher) {
 		//注册一个插件
