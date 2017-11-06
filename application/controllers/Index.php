@@ -6,7 +6,7 @@
  * @desc 默认控制器
  * @see http://www.php.net/manual/en/class.yaf-controller-abstract.php
  */
-class IndexController extends Yaf\Controller_Abstract {
+class IndexController extends BaseController {
 
     /**
      * 默认动作
@@ -15,6 +15,7 @@ class IndexController extends Yaf\Controller_Abstract {
      */
     public function indexAction($name = "Kis") {
 
+        $this->_layout->title = 'index';
         //1. fetch query
         $get = $this->getRequest()->getQuery("get", "default value");
 
